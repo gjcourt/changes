@@ -10,7 +10,10 @@ import (
 // separately for faithful display.
 type Quality int
 
+// Chord quality families. The full original suffix is preserved on the Chord;
+// these only drive Roman-numeral casing and the normalized analysis suffix.
 const (
+	// QualityMajor covers major triads and their extensions.
 	QualityMajor      Quality = iota // C, Cmaj7, C6, Cadd9, Csus4
 	QualityMinor                     // Cm, Cm7, Cm6, Cm9
 	QualityDominant                  // C7, C9, C13, C7alt
