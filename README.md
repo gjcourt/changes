@@ -30,6 +30,7 @@ API:
 ```
 GET /api/standards                              # list
 GET /api/standards/{id}?key=Eb&roman=1          # transposed + analyzed
+GET /api/health                                 # liveness/readiness probe
 ```
 
 ## The corpus

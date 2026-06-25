@@ -75,6 +75,25 @@ func TestHandleStandardBadKey(t *testing.T) {
 	}
 }
 
+func TestHandleHealth(t *testing.T) {
+	h := newTestServer(t)
+	rec := httptest.NewRecorder()
+	h.ServeHTTP(rec, httptest.NewRequest(http.MethodGet, "/api/health", nil))
+	if rec.Code != http.StatusOK {
+		t.Fatalf("status = %d, want 200", rec.Code)
+	}
+	var body struct {
+		Status    string `json:"status"`
+		Standards int    `json:"standards"`
+	}
+	if err := json.Unmarshal(rec.Body.Bytes(), &body); err != nil {
+		t.Fatalf("decode: %v", err)
+	}
+	if body.Status != "ok" || body.Standards < 5 {
+		t.Errorf("health = %+v, want ok with >=5 standards", body)
+	}
+}
+
 func TestServesIndex(t *testing.T) {
 	h := newTestServer(t)
 	rec := httptest.NewRecorder()

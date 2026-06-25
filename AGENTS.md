@@ -61,3 +61,4 @@ A reference tool for jazz musicians: pick a standard, see its changes as a lead-
 |---|---|
 | `GET /api/standards` | `[{id,title,composer,key}]`, sorted by title |
 | `GET /api/standards/{id}?key=<tonic>&roman=1` | the standard transposed to `key` (default original), Roman numerals when `roman` is truthy |
+| `GET /api/health` | `200 {status, standards}` once the corpus is loaded (liveness/readiness probe) |

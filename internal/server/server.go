@@ -26,8 +26,17 @@ func (s *Server) Handler() http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /api/standards", s.handleList)
 	mux.HandleFunc("GET /api/standards/{id}", s.handleStandard)
+	mux.HandleFunc("GET /api/health", s.handleHealth)
 	mux.Handle("GET /", s.static())
 	return withNoCache(mux)
+}
+
+// handleHealth is a liveness/readiness probe: 200 once the corpus is loaded.
+func (s *Server) handleHealth(w http.ResponseWriter, _ *http.Request) {
+	writeJSON(w, http.StatusOK, map[string]any{
+		"status":    "ok",
+		"standards": len(s.lib.List()),
+	})
 }
 
 // handleList returns the corpus metadata, sorted by title.
