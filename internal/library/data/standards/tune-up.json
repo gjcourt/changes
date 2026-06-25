@@ -1,0 +1,15 @@
+{
+  "id": "tune-up",
+  "title": "Tune Up",
+  "composer": "Miles Davis",
+  "key": "D",
+  "form": "16-bar (descending ii-V-I)",
+  "meter": "4/4",
+  "source": "common lead-sheet changes",
+  "sections": [
+    { "label": "A", "bars": [["Em7"], ["A7"], ["Dmaj7"], ["Dmaj7"]] },
+    { "label": "B", "bars": [["Dm7"], ["G7"], ["Cmaj7"], ["Cmaj7"]] },
+    { "label": "C", "bars": [["Cm7"], ["F7"], ["Bbmaj7"], ["Bbmaj7"]] },
+    { "label": "D", "bars": [["Em7"], ["A7"], ["Dmaj7"], ["Dmaj7"]] }
+  ]
+}
