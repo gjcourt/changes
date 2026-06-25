@@ -1,0 +1,15 @@
+{
+  "id": "take-the-a-train",
+  "title": "Take the A Train",
+  "composer": "Billy Strayhorn",
+  "key": "C",
+  "form": "AABA (32-bar)",
+  "meter": "4/4",
+  "source": "common lead-sheet changes",
+  "sections": [
+    { "label": "A", "bars": [["Cmaj7"], ["Cmaj7"], ["D7"], ["D7"], ["Dm7"], ["G7"], ["Cmaj7"], ["Cmaj7"]] },
+    { "label": "A", "bars": [["Cmaj7"], ["Cmaj7"], ["D7"], ["D7"], ["Dm7"], ["G7"], ["Cmaj7"], ["Cmaj7"]] },
+    { "label": "B", "bars": [["Fmaj7"], ["Fmaj7"], ["Fmaj7"], ["Fmaj7"], ["D7"], ["D7"], ["G7"], ["G7"]] },
+    { "label": "A", "bars": [["Cmaj7"], ["Cmaj7"], ["D7"], ["D7"], ["Dm7"], ["G7"], ["Cmaj7"], ["Cmaj7"]] }
+  ]
+}

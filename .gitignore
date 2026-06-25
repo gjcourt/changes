@@ -1,0 +1,10 @@
+# compiled binary (never committed — see AGENTS.md)
+/changes
+changes-linux-amd64
+changes-darwin-amd64
+changes-darwin-arm64
+changes-windows-amd64.exe
+bin/
+
+.DS_Store
+.env

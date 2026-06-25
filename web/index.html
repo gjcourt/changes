@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>changes — jazz standard chord progressions</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>changes</h1>
+    <p class="tagline">jazz standard chord progressions · transpose · Roman analysis</p>
+  </header>
+
+  <section class="controls">
+    <label>Tune
+      <select id="tune" aria-label="Tune"></select>
+    </label>
+    <label>Key
+      <select id="key" aria-label="Key"></select>
+    </label>
+    <label class="toggle">
+      <input type="checkbox" id="roman"> Roman numerals
+    </label>
+    <button id="reset" type="button" title="Back to the tune's original key">Original key</button>
+  </section>
+
+  <main id="sheet" aria-live="polite"></main>
+
+  <footer>
+    <span id="meta"></span>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

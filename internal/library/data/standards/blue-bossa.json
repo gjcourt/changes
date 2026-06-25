@@ -1,0 +1,20 @@
+{
+  "id": "blue-bossa",
+  "title": "Blue Bossa",
+  "composer": "Kenny Dorham",
+  "key": "Cm",
+  "form": "16-bar",
+  "meter": "4/4",
+  "source": "common lead-sheet changes",
+  "sections": [
+    {
+      "label": "Head",
+      "bars": [
+        ["Cm7"], ["Cm7"], ["Fm7"], ["Fm7"],
+        ["Dm7b5"], ["G7"], ["Cm7"], ["Cm7"],
+        ["Ebm7"], ["Ab7"], ["Dbmaj7"], ["Dbmaj7"],
+        ["Dm7b5"], ["G7"], ["Cm7"], ["Dm7b5", "G7"]
+      ]
+    }
+  ]
+}

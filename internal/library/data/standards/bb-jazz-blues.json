@@ -1,0 +1,19 @@
+{
+  "id": "bb-jazz-blues",
+  "title": "Bb Jazz Blues",
+  "composer": "Traditional",
+  "key": "Bb",
+  "form": "12-bar blues",
+  "meter": "4/4",
+  "source": "standard jazz blues changes",
+  "sections": [
+    {
+      "label": "Blues",
+      "bars": [
+        ["Bb7"], ["Eb7"], ["Bb7"], ["Bb7"],
+        ["Eb7"], ["Edim7"], ["Bb7"], ["G7"],
+        ["Cm7"], ["F7"], ["Bb7", "G7"], ["Cm7", "F7"]
+      ]
+    }
+  ]
+}

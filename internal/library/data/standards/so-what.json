@@ -1,0 +1,15 @@
+{
+  "id": "so-what",
+  "title": "So What",
+  "composer": "Miles Davis",
+  "key": "Dm",
+  "form": "AABA (modal)",
+  "meter": "4/4",
+  "source": "D dorian / Eb dorian modal vamp",
+  "sections": [
+    { "label": "A", "bars": [["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"]] },
+    { "label": "A", "bars": [["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"]] },
+    { "label": "B", "bars": [["Ebm7"], ["Ebm7"], ["Ebm7"], ["Ebm7"], ["Ebm7"], ["Ebm7"], ["Ebm7"], ["Ebm7"]] },
+    { "label": "A", "bars": [["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"]] }
+  ]
+}
