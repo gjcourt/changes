@@ -1,0 +1,19 @@
+{
+  "id": "mr-pc",
+  "title": "Mr. P.C.",
+  "composer": "John Coltrane",
+  "key": "Cm",
+  "form": "12-bar minor blues",
+  "meter": "4/4",
+  "source": "standard minor-blues changes",
+  "sections": [
+    {
+      "label": "Blues",
+      "bars": [
+        ["Cm7"], ["Cm7"], ["Cm7"], ["Cm7"],
+        ["Fm7"], ["Fm7"], ["Cm7"], ["Cm7"],
+        ["Ab7"], ["G7"], ["Cm7"], ["Cm7"]
+      ]
+    }
+  ]
+}

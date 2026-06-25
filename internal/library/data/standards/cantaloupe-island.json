@@ -1,0 +1,20 @@
+{
+  "id": "cantaloupe-island",
+  "title": "Cantaloupe Island",
+  "composer": "Herbie Hancock",
+  "key": "Fm",
+  "form": "16-bar vamp",
+  "meter": "4/4",
+  "source": "common lead-sheet changes",
+  "sections": [
+    {
+      "label": "Vamp",
+      "bars": [
+        ["Fm7"], ["Fm7"], ["Fm7"], ["Fm7"],
+        ["Db7"], ["Db7"], ["Db7"], ["Db7"],
+        ["Dm7"], ["Dm7"], ["Dm7"], ["Dm7"],
+        ["Fm7"], ["Fm7"], ["Fm7"], ["Fm7"]
+      ]
+    }
+  ]
+}
