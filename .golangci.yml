@@ -1,0 +1,58 @@
+version: "2"
+
+run:
+  tests: true
+
+linters:
+  default: none
+  enable:
+    - errcheck
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - revive
+    - gosec
+    - goconst
+    - gocyclo
+    - misspell
+    - unconvert
+    - unparam
+    - depguard
+  settings:
+    govet:
+      enable-all: true
+      disable:
+        - fieldalignment
+    gocyclo:
+      min-complexity: 15
+    revive:
+      severity: warning
+      rules:
+        - name: exported
+          disabled: false
+        - name: package-comments
+          disabled: false
+    depguard:
+      rules:
+        # theory is the pure core: standard library only, no other internal pkgs.
+        theory-pure:
+          files:
+            - "**/internal/theory/**/*.go"
+          deny:
+            - pkg: "changes/internal/library"
+              desc: "theory is the pure core; it must not import other internal packages"
+            - pkg: "changes/internal/server"
+              desc: "theory is the pure core; it must not import other internal packages"
+        # library must not depend on the HTTP adapter.
+        library-no-server:
+          files:
+            - "**/internal/library/**/*.go"
+          deny:
+            - pkg: "changes/internal/server"
+              desc: "library must not import the HTTP adapter"
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
