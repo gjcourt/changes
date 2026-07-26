@@ -19,6 +19,8 @@ Pre-push: `make all`
 
 ## Architecture
 
+> Full write-up with a component diagram and the end-to-end request flow: [`docs/architecture.md`](docs/architecture.md).
+
 Entry point: `cmd/changes/main.go`. Lean layering (the corpus is read-only static data, so no storage adapters):
 
 - `internal/theory/` — the music-theory engine: pitch-class math, chord-symbol parsing, transposition, Roman-numeral analysis. **Zero dependencies outside stdlib**; knows nothing about HTTP, JSON, or the corpus.
