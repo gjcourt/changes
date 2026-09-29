@@ -35,9 +35,10 @@ GET /api/health                                 # liveness/readiness probe
 
 ## The corpus
 
-A hand-curated seed of common lead-sheet changes (currently: Blue Bossa, Bb Jazz
-Blues, So What, Autumn Leaves, Take the A Train), designed to scale toward the
-top ~100 standards. Changes are functional harmony (the kind iReal Pro shares);
+A hand-curated seed of common lead-sheet changes (currently: All of Me, Autumn
+Leaves, Bb Jazz Blues, Blue Bossa, Cantaloupe Island, Fly Me to the Moon, Mr.
+P.C., So What, Take the A Train, Tune Up), designed to scale toward the top
+~100 standards. Changes are functional harmony (the kind iReal Pro shares);
 each file notes its `source`.
 
 **Adding a standard** — drop a validated JSON file in
@@ -66,4 +67,10 @@ source before committing** — wrong changes are worse than missing ones.
 
 - Backfill the corpus toward 100 standards.
 - Optional: full functional analysis (secondary-dominant labeling, e.g. `V7/ii`).
-- Optional: deploy to the homelab cluster (`changes.burntbytes.com`).
+
+## More
+
+[`docs/architecture.md`](docs/architecture.md) has a component diagram, the
+request flow for `GET /api/standards/{id}`, and deployment details
+(`ghcr.io/gjcourt/changes`, CI, the homelab cluster). [`AGENTS.md`](AGENTS.md)
+covers conventions and the image-tagging scheme.
