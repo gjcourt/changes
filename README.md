@@ -71,4 +71,4 @@ out a new build.
 
 ## License
 
-No licence file yet.
+[Apache-2.0](LICENSE).
