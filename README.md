@@ -5,8 +5,8 @@ Jazz standard chord progression database — transpose to any key + Roman-numera
 
 Jazz musicians need a quick, accurate reference for a standard's changes in a key
 that isn't the original, and transposing a lead sheet by hand is slow and
-error-prone. changes is a searchable database of curated lead-sheet changes for
-common jazz standards: pick a tune, read it as a lead-sheet grid, transpose it to
+error-prone. changes is a small curated database of lead-sheet changes for jazz
+standards (10 tunes today): pick a tune from the list, read it as a lead-sheet grid, transpose it to
 any of the 12 keys, and toggle Roman-numeral analysis. It's for musicians,
 students, and educators who want changes they can trust rather than a chord
 chart copied from an inconsistent source.
