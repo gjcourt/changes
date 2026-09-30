@@ -1,76 +1,74 @@
+<!-- readme-type: service -->
 # changes
 
-A searchable database of jazz-standard chord progressions, with **transposition
-to any key** and **Roman-numeral analysis**. Pick a tune, read its changes as a
-lead-sheet grid, transpose, and toggle functional analysis.
+Jazz standard chord progression database — transpose to any key + Roman-numeral analysis
 
-Go server + embedded JSON corpus + a dependency-free vanilla-JS frontend.
+Jazz musicians need a quick, accurate reference for a standard's changes in a key
+that isn't the original, and transposing a lead sheet by hand is slow and
+error-prone. changes is a searchable database of curated lead-sheet changes for
+common jazz standards: pick a tune, read it as a lead-sheet grid, transpose it to
+any of the 12 keys, and toggle Roman-numeral analysis. It's for musicians,
+students, and educators who want changes they can trust rather than a chord
+chart copied from an inconsistent source.
 
-## Run
+**Status:** deployed on the homelab at `changes.burntbytes.com`, currently
+running `ghcr.io/gjcourt/changes:2026-07-26-ab53285`.
+
+## Quick start
+
+Needs: Go 1.25+.
 
 ```bash
-make run          # serves on http://localhost:8080
-# or
-go run ./cmd/changes
+git clone https://github.com/gjcourt/changes && cd changes
+make run
 ```
 
-Environment: `ADDR` (default `:8080`), `WEB_DIR` (default `web`).
+Then open <http://localhost:8080>.
+
+## Usage
+
+Transpose a standard to a new key and get its Roman-numeral analysis:
+
+```bash
+curl 'http://localhost:8080/api/standards/blue-bossa?key=Eb&roman=1'
+```
+
+## Configuration
+
+| Variable | Default | Meaning |
+|---|---|---|
+| `ADDR` | `:8080` | Listen address |
+| `WEB_DIR` | `web` | Directory the static frontend is served from |
 
 ## How it works
 
-- `internal/theory/` — the engine: chord-symbol parsing, transposition, and
-  Roman-numeral analysis. Pure, stdlib-only, heavily unit-tested.
-- `internal/library/` — loads + validates the embedded corpus and renders a
-  standard transposed to a target key.
-- `internal/server/` — JSON API + static `web/` SPA.
-- `internal/library/data/standards/*.json` — the corpus (embedded in the binary).
+A pure, stdlib-only theory engine (`internal/theory`) parses chord symbols,
+transposes them, and derives Roman numerals; `internal/library` loads and
+validates the embedded JSON corpus and renders a standard through the engine;
+`internal/server` exposes both as a JSON API and serves the vanilla-JS `web/`
+frontend. There is no database — the corpus is embedded in the binary and
+validated once at startup. See [`docs/architecture.md`](docs/architecture.md)
+for the component diagram and request flow.
 
-API:
+## Development
 
-```
-GET /api/standards                              # list
-GET /api/standards/{id}?key=Eb&roman=1          # transposed + analyzed
-GET /api/health                                 # liveness/readiness probe
-```
-
-## The corpus
-
-A hand-curated seed of common lead-sheet changes (currently: All of Me, Autumn
-Leaves, Bb Jazz Blues, Blue Bossa, Cantaloupe Island, Fly Me to the Moon, Mr.
-P.C., So What, Take the A Train, Tune Up), designed to scale toward the top
-~100 standards. Changes are functional harmony (the kind iReal Pro shares);
-each file notes its `source`.
-
-**Adding a standard** — drop a validated JSON file in
-`internal/library/data/standards/` (the embed glob picks it up, no code change):
-
-```json
-{
-  "id": "tune-id",
-  "title": "Tune Title",
-  "composer": "Composer",
-  "key": "C",
-  "form": "AABA (32-bar)",
-  "meter": "4/4",
-  "source": "where these changes came from",
-  "sections": [
-    { "label": "A", "bars": [["Cmaj7"], ["A7"], ["Dm7"], ["G7"]] }
-  ]
-}
+```bash
+make lint   # exactly what CI runs
+make test
 ```
 
-Each bar is a list of chord symbols (so split bars like `["Bb7","G7"]` work).
-`make test` validates every chord parses. **Verify changes against a trusted
-source before committing** — wrong changes are worse than missing ones.
+Conventions for contributors and agents: [AGENTS.md](AGENTS.md).
 
-## Roadmap
+## Deployment
 
-- Backfill the corpus toward 100 standards.
-- Optional: full functional analysis (secondary-dominant labeling, e.g. `V7/ii`).
+Runs on the homelab; the manifests live in
+[`gjcourt/homelab`](https://github.com/gjcourt/homelab/tree/master/apps/base/changes)
+(`apps/base/changes/`, with the production route in
+`apps/production/changes/`). CI ([`.github/workflows/image.yml`](.github/workflows/image.yml))
+builds and pushes `ghcr.io/gjcourt/changes` on every push to `master`; bump the
+image tag in `apps/base/changes/deployment.yaml` in the homelab repo to roll
+out a new build.
 
-## More
+## License
 
-[`docs/architecture.md`](docs/architecture.md) has a component diagram, the
-request flow for `GET /api/standards/{id}`, and deployment details
-(`ghcr.io/gjcourt/changes`, CI, the homelab cluster). [`AGENTS.md`](AGENTS.md)
-covers conventions and the image-tagging scheme.
+No licence file yet.
