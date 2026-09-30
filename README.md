@@ -11,8 +11,8 @@ any of the 12 keys, and toggle Roman-numeral analysis. It's for musicians,
 students, and educators who want changes they can trust rather than a chord
 chart copied from an inconsistent source.
 
-**Status:** deployed on the homelab at `changes.burntbytes.com`, currently
-running `ghcr.io/gjcourt/changes:2026-07-26-ab53285`.
+**Status:** running on the homelab since 2026-06 — production at
+`changes.burntbytes.com`, staging at `changes.stage.burntbytes.com`.
 
 ## Quick start
 
@@ -53,8 +53,8 @@ for the component diagram and request flow.
 ## Development
 
 ```bash
-make lint   # exactly what CI runs
-make test
+make lint   # golangci-lint run ./... — CI lint job
+make test   # go test -race ./... — CI test job
 ```
 
 Conventions for contributors and agents: [AGENTS.md](AGENTS.md).
@@ -63,8 +63,8 @@ Conventions for contributors and agents: [AGENTS.md](AGENTS.md).
 
 Runs on the homelab; the manifests live in
 [`gjcourt/homelab`](https://github.com/gjcourt/homelab/tree/master/apps/base/changes)
-(`apps/base/changes/`, with the production route in
-`apps/production/changes/`). CI ([`.github/workflows/image.yml`](.github/workflows/image.yml))
+(`apps/base/changes/`, with the production and staging routes in
+`apps/production/changes/` and `apps/staging/changes/`). CI ([`.github/workflows/image.yml`](.github/workflows/image.yml))
 builds and pushes `ghcr.io/gjcourt/changes` on every push to `master`; bump the
 image tag in `apps/base/changes/deployment.yaml` in the homelab repo to roll
 out a new build.
